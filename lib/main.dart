@@ -10,8 +10,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   BaseRemoteDataSource remoteDataSource = RemoteDataSource();
   BaseWeatherRepository weatherRepository = WeatherRepository(remoteDataSource);
-  Weather weather = await GetWeatherByCountryName(weatherRepository).execute("Sanaa");
-  debugPrint(weather.toString());
+  Weather weather =  await GetWeatherByCountryName(weatherRepository).execute("Sanaa");
+  Weather weather2 = await GetWeatherByCountryName(weatherRepository).execute("Sanaa");
+  debugPrint(weather.hashCode.toString());
+  debugPrint(weather2.hashCode.toString());
   runApp(const MyApp());
 }
 
